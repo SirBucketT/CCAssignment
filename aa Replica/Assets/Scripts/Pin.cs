@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class Pin : MonoBehaviour {
 
-	private bool isPinned = false;
+	private bool _isPinned;
 
 	public float speed = 20f;
 	public Rigidbody2D rb;
 
-	void Update ()
+	void Start()
 	{
-		if (!isPinned)
+		_isPinned = false;
+	}
+	
+	void FixedUpdate ()
+	{
+		if (!_isPinned)
 			rb.MovePosition(rb.position + Vector2.up * speed * Time.deltaTime);
 	}
 
@@ -19,7 +24,7 @@ public class Pin : MonoBehaviour {
 		{
 			transform.SetParent(col.transform);
 			Score.PinCount++;
-			isPinned = true;
+			_isPinned = true;
 		} else if (col.tag == "Pin")
 		{
 			Object.FindFirstObjectByType<GameManager>().EndGame();
