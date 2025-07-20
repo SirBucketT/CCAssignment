@@ -22,8 +22,7 @@ public class Pin : MonoBehaviour {
 			isPinned = true;
 		} else if (col.tag == "Pin")
 		{
-			FindObjectOfType<GameManager>().EndGame();
+			Object.FindFirstObjectByType<GameManager>().EndGame();
 		}
 	}
-
 }

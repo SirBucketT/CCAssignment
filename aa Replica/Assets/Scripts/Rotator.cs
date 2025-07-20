@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
-	public float speed = 100f;
+	[SerializeField] float speed = 100f;
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		transform.Rotate(0f, 0f, speed * Time.deltaTime);
 	}
