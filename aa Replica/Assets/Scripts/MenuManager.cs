@@ -18,6 +18,6 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
