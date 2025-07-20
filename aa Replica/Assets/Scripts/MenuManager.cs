@@ -5,6 +5,7 @@ using DG.Tweening;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] RectTransform buttonTransform;
+    [SerializeField] RectTransform fallingObject;
     
     public void QuitGame()
     {
@@ -31,5 +32,18 @@ public class MenuManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         });
+    }
+    
+    private void RemoveAllExceptCamera()
+    {
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.CompareTag("MainCamera") || obj == this.gameObject)
+                continue;
+
+            Destroy(obj);
+        }
     }
 }
