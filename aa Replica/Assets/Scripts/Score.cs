@@ -10,9 +10,11 @@ public class Score : MonoBehaviour {
 	[SerializeField] TextMeshProUGUI currentScoreText; //uppgrade to textmesh pro
 	[SerializeField] TextMeshProUGUI highscoreText;
 
+	//checks player prefs for what is the currently stored highscore, sets highscore text UI and sets start score at 0. 
 	void Awake ()
 	{
 		_highscore = ScoreManager.GetHighscore();
+		highscoreText.text = _highscore.ToString();
 		PinCount = 0;
 	}
 
@@ -29,5 +31,4 @@ public class Score : MonoBehaviour {
 			ScoreManager.SetNewHighscore(PinCount);
 		}
 	}
-
 }
