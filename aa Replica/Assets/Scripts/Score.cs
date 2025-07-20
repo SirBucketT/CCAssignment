@@ -29,6 +29,7 @@ public class Score : MonoBehaviour {
 		if (PinCount >= ScoreManager.GetHighscore())
 		{
 			ScoreManager.SetNewHighscore(PinCount);
+			_highscore = ScoreManager.GetHighscore();
 		}
 	}
 }
