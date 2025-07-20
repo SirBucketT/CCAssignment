@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class Score : MonoBehaviour {
 
@@ -15,6 +12,7 @@ public class Score : MonoBehaviour {
 		PinCount = 0;
 	}
 
+	//changed from void update to fixedupdate for performance reasons. 
 	void FixedUpdate ()
 	{
 		coreText.text = PinCount.ToString();
