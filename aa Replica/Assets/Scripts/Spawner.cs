@@ -11,10 +11,8 @@ public class Spawner : MonoBehaviour {
 			SpawnPin();
 		}
 	}
-
 	void SpawnPin ()
 	{
 		Instantiate(pinPrefab, transform.position, transform.rotation);
 	}
-
 }
