@@ -1,18 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
 
-	private bool gameHasEnded = false;
+	private int _highscore;
+	private bool _gameHasEnded;
 
 	[SerializeField] Rotator rotator;
 	[SerializeField] Spawner spawner;
 
 	[SerializeField] Animator animator;
+	
+	[SerializeField] TextMeshProUGUI scoreText;
+	
 
+	void Awake()
+	{
+		_gameHasEnded = false;
+	}
+	
 	public void EndGame ()
 	{
-		if (gameHasEnded)
+		if (_gameHasEnded)
 			return;
 
 		rotator.enabled = false;
@@ -20,7 +30,7 @@ public class GameManager : MonoBehaviour {
 
 		animator.SetTrigger("EndGame");
 
-		gameHasEnded = true;
+		_gameHasEnded = true;
 	}
 
 	public void RestartLevel ()

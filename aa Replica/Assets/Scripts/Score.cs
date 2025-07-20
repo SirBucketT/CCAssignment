@@ -7,7 +7,7 @@ public class Score : MonoBehaviour {
 
 	[SerializeField] TextMeshProUGUI coreText; //uppgrade to textmesh pro
 
-	void Start ()
+	void Awake ()
 	{
 		PinCount = 0;
 	}
@@ -16,6 +16,14 @@ public class Score : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		coreText.text = PinCount.ToString();
+	}
+
+	void Update()
+	{
+		if (PinCount >= ScoreManager.GetHighscore())
+		{
+			ScoreManager.SetNewHighscore(PinCount);
+		}
 	}
 
 }
