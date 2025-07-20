@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] RectTransform menuButtonFallingObject;
     [SerializeField] float moveDuration = 1f;
+    [SerializeField] GameObject objectToDestroy;
     
     public void QuitGame()
     {
@@ -25,24 +26,24 @@ public class MenuManager : MonoBehaviour
         //start falling image on press and on completes calls method to remove all objects except camera and then switch to main menu scene
         menuButtonFallingObject.anchoredPosition = new Vector2(menuButtonFallingObject.anchoredPosition.x, 3026f);
 
+        // Move down to Y = 0
         menuButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
-            RemoveAllExceptCamera();
-            
-            SceneManager.LoadScene(0);
+            // Move back up to Y = 3026
+            menuButtonFallingObject.DOAnchorPosY(3026f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
+            {
+                // Remove everything except camera
+                RemoveAllExceptCamera();
+                SceneManager.LoadScene(0);
+            });
         });
     }
     
     private void RemoveAllExceptCamera()
     {
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
-
-        foreach (GameObject obj in allObjects)
+        if (objectToDestroy != null)
         {
-            if (obj.CompareTag("MainCamera") || obj == this.gameObject)
-                continue;
-
-            Destroy(obj);
+            Destroy(objectToDestroy);
         }
     }
 }
