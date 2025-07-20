@@ -7,14 +7,14 @@ public class Score : MonoBehaviour {
 
 	public static int PinCount;
 
-	[SerializeField] TextMeshProUGUI text; //uppgrade to textmesh pro
+	[SerializeField] TexhMeshPro text; //uppgrade to textmesh pro
 
 	void Start ()
 	{
 		PinCount = 0;
 	}
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		text.text = PinCount.ToString();
 	}
