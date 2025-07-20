@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] RectTransform buttonTransform;
     [SerializeField] RectTransform fallingObject;
+    [SerializeField] float moveDuration = 1f;
     
     public void QuitGame()
     {
@@ -22,16 +23,18 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenu()
     {
-        // Shake the button
-        buttonTransform.DOShakeAnchorPos(
-            duration: 0.9f,     
-            strength: 15f,      
-            vibrato: 5,        
-            randomness: 90f     
-        ).OnComplete(() =>
-        {
-            SceneManager.LoadScene(0);
-        });
+        buttonTransform.DOShakeAnchorPos(0.9f, strength: 15f, vibrato: 15, randomness: 90f)
+            .OnComplete(() =>
+            {
+                fallingObject.anchoredPosition = new Vector2(fallingObject.anchoredPosition.x, 3026f);
+
+                fallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
+                {
+                    RemoveAllExceptCamera();
+                    
+                    SceneManager.LoadScene(0);
+                });
+            });
     }
     
     private void RemoveAllExceptCamera()
