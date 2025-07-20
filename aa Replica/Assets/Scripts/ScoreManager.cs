@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     
     [SerializeField] TextMeshProUGUI highscoreText;
 
-    void Start()
+    void LateUpdate()
     {
         highscoreText.text = GetHighscore().ToString();
     }
