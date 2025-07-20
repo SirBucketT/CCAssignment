@@ -23,18 +23,15 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenu()
     {
-        buttonTransform.DOShakeAnchorPos(0.9f, strength: 15f, vibrato: 15, randomness: 90f)
-            .OnComplete(() =>
-            {
-                fallingObject.anchoredPosition = new Vector2(fallingObject.anchoredPosition.x, 3026f);
+        //start falling image on press and on completes calls method to remove all objects except camera and then switch to main menu scene
+        fallingObject.anchoredPosition = new Vector2(fallingObject.anchoredPosition.x, 3026f);
 
-                fallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
-                {
-                    RemoveAllExceptCamera();
-                    
-                    SceneManager.LoadScene(0);
-                });
-            });
+        fallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
+        {
+            RemoveAllExceptCamera();
+            
+            SceneManager.LoadScene(0);
+        });
     }
     
     private void RemoveAllExceptCamera()
