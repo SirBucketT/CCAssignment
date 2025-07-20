@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro; 
 
 public class Score : MonoBehaviour {
 
 	public static int PinCount;
 
-	public Text text;
+	[SerializeField] TextMeshProUGUI text; //uppgrade to textmesh pro
 
 	void Start ()
 	{
