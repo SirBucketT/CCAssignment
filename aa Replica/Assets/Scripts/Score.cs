@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
+using TMPro;
+using UnityEngine.Serialization;
 
 public class Score : MonoBehaviour {
 
 	public static int PinCount;
 
-	[SerializeField] TexhMeshPro text; //uppgrade to textmesh pro
+	[SerializeField] TextMeshProUGUI coreText; //uppgrade to textmesh pro
 
 	void Start ()
 	{
@@ -16,7 +17,7 @@ public class Score : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		text.text = PinCount.ToString();
+		coreText.text = PinCount.ToString();
 	}
 
 }
