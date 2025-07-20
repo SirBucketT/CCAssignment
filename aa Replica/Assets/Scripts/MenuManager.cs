@@ -4,8 +4,7 @@ using DG.Tweening;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] RectTransform buttonTransform;
-    [SerializeField] RectTransform fallingObject;
+    [SerializeField] RectTransform menuButtonFallingObject;
     [SerializeField] float moveDuration = 1f;
     
     public void QuitGame()
@@ -24,9 +23,9 @@ public class MenuManager : MonoBehaviour
     public void MainMenu()
     {
         //start falling image on press and on completes calls method to remove all objects except camera and then switch to main menu scene
-        fallingObject.anchoredPosition = new Vector2(fallingObject.anchoredPosition.x, 3026f);
+        menuButtonFallingObject.anchoredPosition = new Vector2(menuButtonFallingObject.anchoredPosition.x, 3026f);
 
-        fallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
+        menuButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
             RemoveAllExceptCamera();
             
