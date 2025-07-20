@@ -1,16 +1,16 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class ScoreManager : MonoBehaviour
 {
     private const string HighscoreKey = "Highscore";
     
-    //I know this should be managed else where, but I'm lazy
-    [SerializeField] TextMeshProUGUI HighscoreText;
+    [SerializeField] TextMeshProUGUI highscoreText;
 
     void Start()
     {
-        HighscoreText.text = GetHighscore().ToString();
+        highscoreText.text = GetHighscore().ToString();
     }
     
     // Call this to update the highscore if the new score is higher
