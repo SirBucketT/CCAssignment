@@ -37,27 +37,27 @@ public class MenuManager : MonoBehaviour
     {
         //start falling image on press and on completes calls method to remove all objects except camera and then switch to main menu scene
         menuButtonFallingObject.anchoredPosition = new Vector2(menuButtonFallingObject.anchoredPosition.x, 3026f);
-
-        // Move down to Y = 0
+        
         menuButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
-            // Move back up to Y = 3026
+            objectToDestroy.SetActive(false);
             menuButtonFallingObject.DOAnchorPosY(3026f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
             {
-                // Remove everything except camera
-                RemoveAllExceptCamera();
+                // Sets object to false active state
+                
+                //RemoveAllExceptCamera();
                 SceneManager.LoadScene(0);
             });
         });
     }
     
-    private void RemoveAllExceptCamera()
+    /*/private void RemoveAllExceptCamera()
     {
         if (objectToDestroy != null)
         {
             Destroy(objectToDestroy);
         }
-    }
+    }*/ 
     
     public void OtherApps(string url)
     {
