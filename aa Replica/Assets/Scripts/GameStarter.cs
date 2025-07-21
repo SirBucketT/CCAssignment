@@ -1,17 +1,23 @@
+/*  Game Starter is a script that runs at the start of the game 
+ *  The main functionality of the Game Starter script is to initialize animations for each button featured on the main menu.
+ *  It's also core to the animation of the top menu bar shown at the top of the screen that displays the current game highscore. 
+ */
+
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 public class GameStarter : MonoBehaviour
 {
-    [SerializeField] RectTransform TopMenuBar;
+    [SerializeField] RectTransform topMenuBar;
     [SerializeField] float moveDuration;
 
     [SerializeField] RectTransform startButtons, resetScoreButton, quitGameButton, creditsButton;
     
     void Awake()
     {
-        TopMenuBar.anchoredPosition = new Vector2(TopMenuBar.anchoredPosition.x, 245f);
-        TopMenuBar.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
+        topMenuBar.anchoredPosition = new Vector2(topMenuBar.anchoredPosition.x, 245f);
+        topMenuBar.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
         
         startButtons.position = new Vector3( -459.45f, startButtons.position.y, startButtons.position.z);
         startButtons.DOMoveX(200f, moveDuration).SetEase(Ease.InOutCubic);
