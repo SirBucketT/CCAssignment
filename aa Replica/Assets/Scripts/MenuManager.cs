@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using UnityEngine.Serialization;
 
 public class MenuManager : MonoBehaviour
 {

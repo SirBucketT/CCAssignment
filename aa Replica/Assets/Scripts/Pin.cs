@@ -4,8 +4,8 @@ public class Pin : MonoBehaviour {
 
 	private bool _isPinned;
 
-	public float speed = 20f;
-	public Rigidbody2D rb;
+	[SerializeField] float speed = 20f;
+	[SerializeField] Rigidbody2D rb;
 
 	void Start()
 	{

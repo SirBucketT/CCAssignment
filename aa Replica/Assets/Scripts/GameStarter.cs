@@ -5,7 +5,6 @@
 
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Serialization;
 
 public class GameStarter : MonoBehaviour
 {
