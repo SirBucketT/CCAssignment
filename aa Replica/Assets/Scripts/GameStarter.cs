@@ -1,6 +1,7 @@
 /*  Game Starter is a script that runs at the start of the game 
  *  The main functionality of the Game Starter script is to initialize animations for each button featured on the main menu.
- *  It's also core to the animation of the top menu bar shown at the top of the screen that displays the current game highscore. 
+ *  It's also core to the animation of the top menu bar shown at the top of the screen that displays the current game highscore.
+ * The script finally also animates the textmesh pro powered logo for the game.
  */
 
 using UnityEngine;
