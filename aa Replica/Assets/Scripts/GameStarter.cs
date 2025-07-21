@@ -17,7 +17,7 @@ public class GameStarter : MonoBehaviour
     void Awake()
     {
         topMenuBar.anchoredPosition = new Vector2(topMenuBar.anchoredPosition.x, 245f);
-        topMenuBar.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
+        topMenuBar.DOAnchorPosY(-109.21f, moveDuration).SetEase(Ease.InOutCubic);
         
         startButtons.position = new Vector3( -459.45f, startButtons.position.y, startButtons.position.z);
         startButtons.DOMoveX(200f, moveDuration).SetEase(Ease.InOutCubic);
