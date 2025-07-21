@@ -3,15 +3,15 @@ using DG.Tweening;
 
 public class GameStarter : MonoBehaviour
 {
-    [SerializeField] RectTransform topMenuBar;
+    [SerializeField] RectTransform TopMenuBar;
     [SerializeField] float moveDuration;
 
-    [SerializeField] RectTransform startButtons, resetScoreButton, quitGameButton;
+    [SerializeField] RectTransform startButtons, resetScoreButton, quitGameButton, creditsButton;
     
     void Awake()
     {
-        topMenuBar.anchoredPosition = new Vector2(topMenuBar.anchoredPosition.x, 245f);
-        topMenuBar.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
+        TopMenuBar.anchoredPosition = new Vector2(TopMenuBar.anchoredPosition.x, 245f);
+        TopMenuBar.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
         
         startButtons.position = new Vector3( -459.45f, startButtons.position.y, startButtons.position.z);
         startButtons.DOMoveX(200f, moveDuration).SetEase(Ease.InOutCubic);
@@ -21,5 +21,8 @@ public class GameStarter : MonoBehaviour
         
         quitGameButton.position = new Vector3( -459.45f, quitGameButton.position.y, quitGameButton.position.z);
         quitGameButton.DOMoveX(200f, moveDuration+0.3f).SetEase(Ease.InOutCubic);
+        
+        creditsButton.position = new Vector3( -459.45f, creditsButton.position.y, creditsButton.position.z);
+        creditsButton.DOMoveX(200f, moveDuration+0.4f).SetEase(Ease.InOutCubic);
     }
 }

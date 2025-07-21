@@ -4,9 +4,21 @@ using DG.Tweening;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] RectTransform menuButtonFallingObject;
+    [SerializeField] RectTransform menuButtonFallingObject, creditsButtonFallingObject;
     [SerializeField] float moveDuration = 1f;
     [SerializeField] GameObject objectToDestroy;
+    
+    public void CreditsButton()
+    {
+        creditsButtonFallingObject.anchoredPosition = new Vector2(creditsButtonFallingObject.anchoredPosition.x, 3026f);
+        creditsButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
+    }
+
+    public void CloseCreditsButton()
+    {
+        creditsButtonFallingObject.anchoredPosition = new Vector2(creditsButtonFallingObject.anchoredPosition.x, 0f);
+        creditsButtonFallingObject.DOAnchorPosY(3026f, moveDuration).SetEase(Ease.InOutCubic);
+    }
     
     public void QuitGame()
     {
@@ -45,5 +57,10 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(objectToDestroy);
         }
+    }
+    
+    public void OtherApps(string url)
+    {
+        Application.OpenURL(url);
     }
 }
