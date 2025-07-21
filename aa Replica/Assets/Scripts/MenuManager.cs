@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] RectTransform menuButtonFallingObject, creditsButtonFallingObject;
     [SerializeField] float moveDuration;
     [SerializeField] GameObject objectToHide;
+    [SerializeField] GameObject textToHide;
     
     public void CreditsButton()
     {
@@ -39,6 +40,7 @@ public class MenuManager : MonoBehaviour
         menuButtonFallingObject.anchoredPosition = new Vector2(menuButtonFallingObject.anchoredPosition.x, 3026f);
         
         objectToHide.SetActive(false);
+        textToHide.SetActive(false);
         menuButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
             menuButtonFallingObject.DOAnchorPosY(3026f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
