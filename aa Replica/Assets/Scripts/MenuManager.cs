@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] RectTransform menuButtonFallingObject, creditsButtonFallingObject;
     [SerializeField] float moveDuration = 1f;
-    [SerializeField] GameObject objectToDestroy;
+    [SerializeField] GameObject objectToHide;
     
     public void CreditsButton()
     {
@@ -38,9 +39,9 @@ public class MenuManager : MonoBehaviour
         //start falling image on press and on completes calls method to setActive(false) for all game objects and then switch to main menu scene
         menuButtonFallingObject.anchoredPosition = new Vector2(menuButtonFallingObject.anchoredPosition.x, 3026f);
         
+        objectToHide.SetActive(false);
         menuButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
-            objectToDestroy.SetActive(false);
             menuButtonFallingObject.DOAnchorPosY(3026f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
             {
                 SceneManager.LoadScene(0);
