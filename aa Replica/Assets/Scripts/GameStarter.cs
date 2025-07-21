@@ -5,6 +5,7 @@
 
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class GameStarter : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameStarter : MonoBehaviour
     [SerializeField] float moveDuration;
 
     [SerializeField] RectTransform startButtons, resetScoreButton, quitGameButton, creditsButton;
+    
+    [SerializeField] TextMeshProUGUI logo;
+    [SerializeField] float logoRotator;
     
     void Awake()
     {
@@ -29,5 +33,17 @@ public class GameStarter : MonoBehaviour
         
         creditsButton.position = new Vector3( -459.45f, creditsButton.position.y, creditsButton.position.z);
         creditsButton.DOMoveX(200f, moveDuration+0.4f).SetEase(Ease.InOutCubic);
+        
+        logo.transform.localScale = Vector3.zero;
+        logo.gameObject.SetActive(true);
+        logo.transform.DOScale(1f, 0.5f)
+            .SetEase(Ease.OutBack)
+            .OnComplete(() =>
+            {
+                logo.transform
+                    .DORotate(new Vector3(0, 0, logoRotator), 1f)
+                    .SetEase(Ease.InOutSine)
+                    .SetLoops(-1, LoopType.Yoyo);
+            });
     }
 }
