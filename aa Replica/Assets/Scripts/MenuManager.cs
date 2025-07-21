@@ -8,10 +8,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float moveDuration;
     [SerializeField] GameObject objectToHide;
     [SerializeField] GameObject textToHide;
+
+    void Awake()
+    {
+        creditsButtonFallingObject.anchoredPosition = new Vector2(creditsButtonFallingObject.anchoredPosition.x, 1984f);
+    }
     
     public void CreditsButton()
     {
-        creditsButtonFallingObject.anchoredPosition = new Vector2(creditsButtonFallingObject.anchoredPosition.x, 3026f);
         creditsButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
     }
 
