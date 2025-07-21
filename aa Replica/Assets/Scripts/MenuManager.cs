@@ -11,12 +11,18 @@ public class MenuManager : MonoBehaviour
 
     void Awake()
     {
-        creditsButtonFallingObject.anchoredPosition = new Vector2(creditsButtonFallingObject.anchoredPosition.x, 1984f);
+        if (creditsButtonFallingObject != null)
+        {
+            creditsButtonFallingObject.anchoredPosition = new Vector2(creditsButtonFallingObject.anchoredPosition.x, 1984f);
+        }
     }
     
     public void CreditsButton()
     {
+        if (creditsButtonFallingObject != null)
+        {
         creditsButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
+        }
     }
 
     public void CloseCreditsButton()
