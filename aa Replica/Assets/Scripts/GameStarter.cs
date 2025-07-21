@@ -15,7 +15,7 @@ public class GameStarter : MonoBehaviour
 
     [SerializeField] RectTransform startButtons, resetScoreButton, quitGameButton, creditsButton;
     
-    [SerializeField] TextMeshProUGUI logo;
+    [SerializeField] GameObject logo;
     [SerializeField] float logoRotator;
     
     void Awake()
