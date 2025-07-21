@@ -23,17 +23,17 @@ public class GameStarter : MonoBehaviour
         topMenuBar.anchoredPosition = new Vector2(topMenuBar.anchoredPosition.x, -785f);
         topMenuBar.DOAnchorPosY(-960f, moveDuration).SetEase(Ease.InOutCubic);
         
-        startButtons.position = new Vector3( -459.45f, startButtons.position.y, startButtons.position.z);
-        startButtons.DOMoveX(200f, moveDuration).SetEase(Ease.InOutCubic);
+        startButtons.position = new Vector3( -485f, startButtons.position.y, startButtons.position.z);
+        startButtons.DOMoveX(219f, moveDuration).SetEase(Ease.InOutCubic);
         
-        resetScoreButton.position = new Vector3( -459.45f, resetScoreButton.position.y, resetScoreButton.position.z);
-        resetScoreButton.DOMoveX(200f, moveDuration+0.2f).SetEase(Ease.InOutCubic);
+        resetScoreButton.position = new Vector3( -485f, resetScoreButton.position.y, resetScoreButton.position.z);
+        resetScoreButton.DOMoveX(219f, moveDuration+0.2f).SetEase(Ease.InOutCubic);
         
-        quitGameButton.position = new Vector3( -459.45f, quitGameButton.position.y, quitGameButton.position.z);
-        quitGameButton.DOMoveX(200f, moveDuration+0.3f).SetEase(Ease.InOutCubic);
+        quitGameButton.position = new Vector3( -485f, quitGameButton.position.y, quitGameButton.position.z);
+        quitGameButton.DOMoveX(219f, moveDuration+0.3f).SetEase(Ease.InOutCubic);
         
-        creditsButton.position = new Vector3( -459.45f, creditsButton.position.y, creditsButton.position.z);
-        creditsButton.DOMoveX(200f, moveDuration+0.4f).SetEase(Ease.InOutCubic);
+        creditsButton.position = new Vector3( -485f, creditsButton.position.y, creditsButton.position.z);
+        creditsButton.DOMoveX(219f, moveDuration+0.4f).SetEase(Ease.InOutCubic);
         
         logo.transform.localScale = Vector3.zero;
         logo.gameObject.SetActive(true);
