@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
     {
         if (creditsButtonFallingObject != null)
         {
-        creditsButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
+            creditsButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic);
         }
     }
 
@@ -47,13 +47,13 @@ public class MenuManager : MonoBehaviour
     public void MainMenu()
     {
         //start falling image on press and on completes calls method to setActive(false) for all game objects and then switch to main menu scene
-        menuButtonFallingObject.anchoredPosition = new Vector2(menuButtonFallingObject.anchoredPosition.x, 3026f);
+        menuButtonFallingObject.anchoredPosition = new Vector2(menuButtonFallingObject.anchoredPosition.x, 1996f);
         
         objectToHide.SetActive(false);
         textToHide.SetActive(false);
         menuButtonFallingObject.DOAnchorPosY(0f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
-            menuButtonFallingObject.DOAnchorPosY(3026f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
+            menuButtonFallingObject.DOAnchorPosY(1996f, moveDuration).SetEase(Ease.InOutCubic).OnComplete(() =>
             {
                 SceneManager.LoadScene(0);
             });
