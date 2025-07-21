@@ -48,14 +48,6 @@ public class MenuManager : MonoBehaviour
         });
     }
     
-    /*/private void RemoveAllExceptCamera()
-    {
-        if (objectToDestroy != null)
-        {
-            Destroy(objectToDestroy);
-        }
-    }*/ 
-    
     public void OtherApps(string url)
     {
         Application.OpenURL(url);
