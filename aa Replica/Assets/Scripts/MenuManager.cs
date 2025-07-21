@@ -5,7 +5,7 @@ using DG.Tweening;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] RectTransform menuButtonFallingObject, creditsButtonFallingObject;
-    [SerializeField] float moveDuration = 1f;
+    [SerializeField] float moveDuration;
     [SerializeField] GameObject objectToHide;
     
     public void CreditsButton()
