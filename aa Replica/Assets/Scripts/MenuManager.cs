@@ -10,9 +10,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject textToHide;
     
     [SerializeField] SoundManager sounds;
+    [SerializeField] LevelManager levelManager;
 
     void Awake()
     {
+        
         if (creditsButtonFallingObject != null)
         {
             creditsButtonFallingObject.anchoredPosition = new Vector2(creditsButtonFallingObject.anchoredPosition.x, 1984f);
@@ -70,6 +72,8 @@ public class MenuManager : MonoBehaviour
         sounds.ClickSound();
         SceneManager.LoadScene(1);
     }
+    
+    
 
     public void MainMenu()
     {

@@ -1,34 +1,27 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    int unlockedLevel;
+    public int unlockedLevel;
 
     [SerializeField] int currentScore;
     [SerializeField] int scoreToUnlockNext;
-    [SerializeField] int currentLevel;
-    
-    public Button[] levelButtons;
     
     bool hasUnlocked;
 
-    void Start()
+    void Awake()
     {
         unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
         hasUnlocked = false;
-        
-        for (int i = 0; i < levelButtons.Length; i++)
-        {
-            levelButtons[i].interactable = (i + 1) <= unlockedLevel;
-        }
     }
     
     void Update()
     {
         if (!hasUnlocked && currentScore >= scoreToUnlockNext)
         {
-            UnlockNextLevel(currentLevel);
+            UnlockNextLevel(unlockedLevel);
             hasUnlocked = true;
         }
     }
