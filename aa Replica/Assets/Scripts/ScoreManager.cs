@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
     private const string HighscoreKey = "Highscore";
     
     [SerializeField] TextMeshProUGUI highscoreText;
+    [SerializeField] SoundManager sound;
 
     void LateUpdate()
     {
@@ -33,6 +34,7 @@ public class ScoreManager : MonoBehaviour
     
     public void ResetHighscore()
     {
+        sound.ClickSound();
         PlayerPrefs.DeleteKey(HighscoreKey);
     }
 }
