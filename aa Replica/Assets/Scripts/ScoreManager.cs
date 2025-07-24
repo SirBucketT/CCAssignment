@@ -6,12 +6,13 @@ public class ScoreManager : MonoBehaviour
 {
     private const string HighscoreKey = "Highscore";
     
-    [SerializeField] TextMeshProUGUI highscoreText;
+    [SerializeField] TextMeshProUGUI highscoreText, highscoreBackText;
     [SerializeField] SoundManager sound;
 
     void LateUpdate()
     {
         highscoreText.text = GetHighscore().ToString();
+        highscoreBackText.text = highscoreText.text;
     }
     
     // Call this to update the highscore if the new score is higher
