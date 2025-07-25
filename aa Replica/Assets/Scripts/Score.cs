@@ -6,9 +6,8 @@ public class Score : MonoBehaviour {
 	public static int PinCount;
 	private int _highscore;
 
-	[SerializeField] TextMeshProUGUI currentScoreText; //uppgrade to textmesh pro
-
-	//checks player prefs for what is the currently stored highscore, sets highscore text UI and sets start score at 0. 
+	[SerializeField] TextMeshProUGUI currentScoreText; 
+	
 	void Awake ()
 	{
 		PinCount = 0;

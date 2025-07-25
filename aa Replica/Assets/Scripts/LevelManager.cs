@@ -1,27 +1,38 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using DG.Tweening;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-    public int unlockedLevel;
+    [SerializeField] int unlockedLevel;
 
-    [SerializeField] int currentScore;
+    private int currentScore;
     [SerializeField] int scoreToUnlockNext;
+    [SerializeField] TextMeshProUGUI levelUnlockedText;
     
     bool hasUnlocked;
 
     void Awake()
     {
-        unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        PlayerPrefs.SetInt("UnlockedLevel", unlockedLevel);
+        PlayerPrefs.Save();
         hasUnlocked = false;
     }
     
     void Update()
     {
+       currentScore = Score.PinCount;
         if (!hasUnlocked && currentScore >= scoreToUnlockNext)
         {
             UnlockNextLevel(unlockedLevel);
+            levelUnlockedText.transform.DOScale(1f, 0.5f).SetEase(Ease.InOutCubic).
+                OnComplete(() =>
+                {
+                    levelUnlockedText.transform.DOScale(0f, 0.5f).SetEase(Ease.InOutCubic);
+                });
+            
             hasUnlocked = true;
         }
     }

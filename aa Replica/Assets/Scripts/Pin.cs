@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Pin : MonoBehaviour {
 
@@ -26,6 +27,7 @@ public class Pin : MonoBehaviour {
 			transform.SetParent(col.transform);
 			Score.PinCount++;
 			_isPinned = true;
+
 		} else if (col.tag == "Pin")
 		{
 			Object.FindFirstObjectByType<GameManager>().EndGame();
