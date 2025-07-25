@@ -66,12 +66,6 @@ public class MenuManager : MonoBehaviour
         #endif
             Application.Quit();
     }
-
-    public void PlayGame()
-    {
-        sounds.ClickSound();
-        SceneManager.LoadScene(1);
-    }
     
     
 
